@@ -4,9 +4,7 @@
     "minecraft:plains",
     "minecraft:sunflower_plains",
     "minecraft:forest",
-    "minecraft:flower_forest",
-    "minecraft:dark_forest",
-    "minecraft:meadow"
+    "minecraft:dark_forest"
   ],
   "features": "plainappletree:apple_tree_natural",
   "step": "vegetal_decoration"

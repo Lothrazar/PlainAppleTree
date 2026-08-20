@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "minecraft:swamp"
+  ],
+  "features": "plainappletree:swamp_oak_apple_natural",
+  "step": "vegetal_decoration"
+}

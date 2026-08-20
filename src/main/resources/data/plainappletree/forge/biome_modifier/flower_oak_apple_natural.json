@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "minecraft:flower_forest",
+    "minecraft:meadow"
+  ],
+  "features": "plainappletree:flower_oak_apple_natural",
+  "step": "vegetal_decoration"
+}
