@@ -6,8 +6,8 @@ A Template for Minecraft Forge mods .  Uses Forge API: https://neoforged.net/
 Use the GitHub template button, or even better the copyTemplate.sh script
 
 
-[![](http://cf.way2muchnoise.eu/0.svg)](https://www.curseforge.com/minecraft/mc-mods/plain-apple-tree) 
-[![](http://cf.way2muchnoise.eu/versions/0.svg)](https://www.curseforge.com/minecraft/mc-mods/plain-apple-tree)
+[![](http://cf.way2muchnoise.eu/1661030.svg)](https://www.curseforge.com/minecraft/mc-mods/plain-apple-tree) 
+[![](http://cf.way2muchnoise.eu/versions/1661030.svg)](https://www.curseforge.com/minecraft/mc-mods/plain-apple-tree)
 
 
 [![Modrinth](https://img.shields.io/badge/Modrinth-1bd96a?style=flat-square&logo=modrinth&logoColor=white)](https://modrinth.com/mod/plain-apple-tree)
