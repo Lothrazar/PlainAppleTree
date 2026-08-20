@@ -47,6 +47,12 @@ public class AppleLeavesBlock extends LeavesBlock {
     BlockState current = level.getBlockState(pos);
     if (current.is(this) && !current.getValue(FRUIT)) {
       int chance = current.getValue(WATERLOGGED) ? ConfigManager.FRUIT_REGROW_CHANCE_WATERLOGGED.get() : ConfigManager.FRUIT_REGROW_CHANCE.get();
+      int distance = current.getValue(DISTANCE);
+      if (distance >= 4) {
+        // leaves far from any log (near the edge of the canopy, or an isolated placed leaf) regrow slower,
+        // with distance 7 (max/uncomputed) getting an extra penalty beyond the linear falloff
+        chance *= distance == 7 ? 8 : distance - 2;
+      }
       if (rand.nextInt(chance) == 0) {
         level.setBlock(pos, current.setValue(FRUIT, Boolean.TRUE), 2);
       }
@@ -60,7 +66,15 @@ public class AppleLeavesBlock extends LeavesBlock {
     }
     if (!level.isClientSide) {
       level.setBlock(pos, state.setValue(FRUIT, Boolean.FALSE), 2);
-      Containers.dropItemStack(level, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.APPLE));
+
+      final int bonusChance = ConfigManager.BONUS_APPLE_CHANCE.get();
+      int count = 1;
+      if (bonusChance > 0 && level.random.nextInt(bonusChance) == 0) {
+        count = 2;
+      }
+      // the leaf block itself stays solid (only fruit flips off), so nudge the drop down half a block -
+      // otherwise a leaf boxed in on all sides and above has nowhere for the item to land but inside itself
+      Containers.dropItemStack(level, pos.getX(), pos.getY() - 0.5, pos.getZ(), new ItemStack(Items.APPLE, count));
       level.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
     }
     return InteractionResult.sidedSuccess(level.isClientSide);
