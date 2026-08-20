@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "fruit=false": {
+      "model": "minecraft:block/oak_leaves"
+    },
+    "fruit=true": {
+      "model": "plainappletree:block/apple_leaves_fruit"
+    }
+  }
+}
